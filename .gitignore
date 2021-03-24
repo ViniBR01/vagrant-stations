@@ -1,0 +1,5 @@
+#General .gitignore file for a vagrant project
+.vagrant/
+
+#emacs temp files
+*#
