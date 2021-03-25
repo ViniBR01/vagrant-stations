@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 #   apt-get update
 #   apt-get install -y apache2
@@ -9,4 +9,4 @@
 
 cd /vagrant_data
 # _evalBG "${cmd}"
-start-client &>/dev/null & disown
+./start-client &>/dev/null & disown

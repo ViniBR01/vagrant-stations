@@ -74,4 +74,5 @@ Vagrant.configure("2") do |config|
   # # _evalBG "${cmd}"
   # start-client &>/dev/null & disown
   # SHELL
+  config.vm.provision "shell", path: "script.sh"
 end
