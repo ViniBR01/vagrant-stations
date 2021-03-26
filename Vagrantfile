@@ -6,73 +6,106 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
-
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://vagrantcloud.com/search.
+  # Use the same base-box for all station vms
   config.vm.box = "hashicorp/bionic64"
 
-  # Disable automatic box update checking. If you disable this, then
-  # boxes will only be checked for updates when the user runs
-  # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
-
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # NOTE: This will enable public access to the opened port
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine and only allow access
-  # via 127.0.0.1 to disable public access
-  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
-
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
-
-  # Create a public network, which generally matched to bridged network.
-  # Bridged networks make the machine appear as another physical device on
-  # your network.
-  config.vm.network "public_network", ip: "192.168.0.102", bridge: "eno1"
-
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
+  # Share an additional folder to the guest VM: the TCP traffic app
   config.vm.synced_folder "../TCP-traffic-generator", "/vagrant_data"
 
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
-  config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-    # Customize the amount of memory on the VM:
-    vb.memory = "1024"
+  config.vm.define "sta01" do |sta01|  
+    # Create a public network, which generally matched to bridged network.
+    sta01.vm.network "public_network", ip: "192.168.0.102", bridge: "eno1"
+    # Provider-specific configuration: VirtualBox
+    sta01.vm.provider "virtualbox" do |vb01|
+      vb01.name = "sta01-vm"
+      vb01.memory = "512"
+      vb01.cpus = "1"
+      # vb01.customize ["modifyvm", :id, "--cpuexecutioncap", "20"]
+      # vb01.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+    end
   end
-  #
+  
+  config.vm.define "sta02" do |sta02|  
+    sta02.vm.network "public_network", ip: "192.168.0.103", bridge: "eno1"
+    sta02.vm.provider "virtualbox" do |vb02|
+      vb02.name = "sta02-vm"
+      vb02.memory = "512"
+      vb02.cpus = "1"
+      #vb02.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+      #vb02.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+    end
+  end
+  
+  config.vm.define "sta03" do |sta03|  
+    sta03.vm.network "public_network", ip: "192.168.0.104", bridge: "eno1"
+    sta03.vm.provider "virtualbox" do |vb03|
+      vb03.name = "sta03-vm"
+      vb03.memory = "512"
+      vb03.cpus = "1"
+      #vb03.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+      #vb03.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+    end
+  end
+  
+  config.vm.define "sta04" do |sta04|  
+    sta04.vm.network "public_network", ip: "192.168.0.105", bridge: "eno1"
+    sta04.vm.provider "virtualbox" do |vb04|
+      vb04.name = "sta04-vm"
+      vb04.memory = "512"
+      vb04.cpus = "1"
+      #vb04.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+      #vb04.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+    end
+  end
+  
+  config.vm.define "sta05" do |sta05|  
+    sta05.vm.network "public_network", ip: "192.168.0.106", bridge: "eno1"
+    sta05.vm.provider "virtualbox" do |vb05|
+      vb05.name = "sta05-vm"
+      vb05.memory = "512"
+      vb05.cpus = "1"
+      #vb05.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+      #vb05.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+    end
+  end
+  
+  config.vm.define "sta06" do |sta06|  
+    sta06.vm.network "public_network", ip: "192.168.0.107", bridge: "eno1"
+    sta06.vm.provider "virtualbox" do |vb06|
+      vb06.name = "sta06-vm"
+      vb06.memory = "512"
+      vb06.cpus = "1"
+      #vb06.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+      #vb06.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+    end
+  end
+  
+  config.vm.define "sta07" do |sta07|  
+    sta07.vm.network "public_network", ip: "192.168.0.108", bridge: "eno1"
+    sta07.vm.provider "virtualbox" do |vb07|
+      vb07.name = "sta07-vm"
+      vb07.memory = "512"
+      vb07.cpus = "1"
+      #vb07.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+      #vb07.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+    end
+  end
+  
+  config.vm.define "sta08" do |sta08|  
+    sta08.vm.network "public_network", ip: "192.168.0.109", bridge: "eno1"
+    sta08.vm.provider "virtualbox" do |vb08|
+      vb08.name = "sta08-vm"
+      vb08.memory = "512"
+      vb08.cpus = "1"
+      #vb08.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+      #vb08.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+    end
+  end
+  
   # View the documentation for the provider you are using for more
   # information on available options.
 
   # Enable provisioning with a shell script. Additional provisioners such as
-  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", privileged: false, run: 'always', inline: <<-SHELL
-  # #   apt-get update
-  # #   apt-get install -y apache2
-  # # _evalBg() {
-  # #   eval "$@" &>/dev/null & disown
-  # # }
-  # # cmd="start-client -v 0"
-  # cd /vagrant_data
-  # # _evalBG "${cmd}"
-  # start-client &>/dev/null & disown
-  # SHELL
+  # Ansible, Chef, Docker, Puppet and Salt are also available. 
   config.vm.provision "shell", path: "script.sh"
 end
