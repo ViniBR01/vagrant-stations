@@ -7,6 +7,7 @@
 # }
 # cmd="start-client -v 0"
 
+pkill start-client
 cd /vagrant_data
 # _evalBG "${cmd}"
 ./start-client &>/dev/null & disown
