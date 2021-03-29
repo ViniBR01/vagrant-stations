@@ -7,7 +7,7 @@
 # you're doing.
 Vagrant.configure("2") do |config|
   # Use the same base-box for all station vms
-  config.vm.box = "hashicorp/bionic64"
+  config.vm.box = "ubuntu/focal64"
 
   # Share an additional folder to the guest VM: the TCP traffic app
   config.vm.synced_folder "../TCP-traffic-generator", "/vagrant_data"
