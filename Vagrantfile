@@ -5,6 +5,10 @@
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
+
+#When using this script in a new machine, update the following:
+# IP addresses, bridge device, port number
+
 Vagrant.configure("2") do |config|
   # Use the same base-box for all station vms
   config.vm.box = "ubuntu/focal64"
@@ -15,6 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "sta01" do |sta01|  
     # Create a public network, which generally matched to bridged network.
     sta01.vm.network "public_network", ip: "192.168.0.202", bridge: "eno1"
+
     # Provider-specific configuration: VirtualBox
     sta01.vm.provider "virtualbox" do |vb01|
       vb01.name = "sta01-vm"
@@ -23,6 +28,11 @@ Vagrant.configure("2") do |config|
       # vb01.customize ["modifyvm", :id, "--cpuexecutioncap", "20"]
       # vb01.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+
+    # Enable provisioning with a shell script. Additional provisioners such as
+    # Ansible, Chef, Docker, Puppet and Salt are also available. 
+    sta01.vm.provision "shell", path: "script.sh", args: "10202"
+
   end
   
   config.vm.define "sta02" do |sta02|  
@@ -34,6 +44,7 @@ Vagrant.configure("2") do |config|
       #vb02.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       #vb02.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta02.vm.provision "shell", path: "script.sh", args: "10203"
   end
   
   config.vm.define "sta03" do |sta03|  
@@ -45,6 +56,7 @@ Vagrant.configure("2") do |config|
       #vb03.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       #vb03.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta03.vm.provision "shell", path: "script.sh", args: "10204"
   end
   
   config.vm.define "sta04" do |sta04|  
@@ -56,6 +68,7 @@ Vagrant.configure("2") do |config|
       #vb04.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       #vb04.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta04.vm.provision "shell", path: "script.sh", args: "10205"
   end
   
   config.vm.define "sta05" do |sta05|  
@@ -67,6 +80,7 @@ Vagrant.configure("2") do |config|
       #vb05.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       #vb05.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta05.vm.provision "shell", path: "script.sh", args: "10206"
   end
   
   config.vm.define "sta06" do |sta06|  
@@ -78,6 +92,7 @@ Vagrant.configure("2") do |config|
       #vb06.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       #vb06.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta06.vm.provision "shell", path: "script.sh", args: "10207"
   end
   
   config.vm.define "sta07" do |sta07|  
@@ -89,6 +104,7 @@ Vagrant.configure("2") do |config|
       #vb07.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       #vb07.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta07.vm.provision "shell", path: "script.sh", args: "10208"
   end
   
   config.vm.define "sta08" do |sta08|  
@@ -100,6 +116,7 @@ Vagrant.configure("2") do |config|
       #vb08.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       #vb08.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta08.vm.provision "shell", path: "script.sh", args: "10209"
   end
   
   config.vm.define "sta09" do |sta09|  
@@ -113,6 +130,7 @@ Vagrant.configure("2") do |config|
       # vb09.customize ["modifyvm", :id, "--cpuexecutioncap", "20"]
       # vb09.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta09.vm.provision "shell", path: "script.sh", args: "10210"
   end
   
   config.vm.define "sta10" do |sta10|  
@@ -126,6 +144,7 @@ Vagrant.configure("2") do |config|
       # vb10.customize ["modifyvm", :id, "--cpuexecutioncap", "20"]
       # vb10.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta10.vm.provision "shell", path: "script.sh", args: "10211"
   end
   
   config.vm.define "sta11" do |sta11|  
@@ -139,6 +158,7 @@ Vagrant.configure("2") do |config|
       # vb11.customize ["modifyvm", :id, "--cpuexecutioncap", "20"]
       # vb11.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta11.vm.provision "shell", path: "script.sh", args: "10212"
   end
   
   config.vm.define "sta12" do |sta12|  
@@ -152,6 +172,7 @@ Vagrant.configure("2") do |config|
       # vb12.customize ["modifyvm", :id, "--cpuexecutioncap", "20"]
       # vb12.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta12.vm.provision "shell", path: "script.sh", args: "10213"
   end
   
   config.vm.define "sta13" do |sta13|  
@@ -165,6 +186,7 @@ Vagrant.configure("2") do |config|
       # vb13.customize ["modifyvm", :id, "--cpuexecutioncap", "20"]
       # vb13.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta13.vm.provision "shell", path: "script.sh", args: "10214"
   end
   
   config.vm.define "sta14" do |sta14|  
@@ -178,6 +200,7 @@ Vagrant.configure("2") do |config|
       # vb14.customize ["modifyvm", :id, "--cpuexecutioncap", "20"]
       # vb14.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta14.vm.provision "shell", path: "script.sh", args: "10215"
   end
   
   config.vm.define "sta15" do |sta15|  
@@ -191,6 +214,7 @@ Vagrant.configure("2") do |config|
       # vb15.customize ["modifyvm", :id, "--cpuexecutioncap", "20"]
       # vb15.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta15.vm.provision "shell", path: "script.sh", args: "10216"
   end
   
   config.vm.define "sta16" do |sta16|  
@@ -204,12 +228,7 @@ Vagrant.configure("2") do |config|
       # vb16.customize ["modifyvm", :id, "--cpuexecutioncap", "20"]
       # vb16.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
+    sta16.vm.provision "shell", path: "script.sh", args: "10217"
   end
   
-  # View the documentation for the provider you are using for more
-  # information on available options.
-
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Ansible, Chef, Docker, Puppet and Salt are also available. 
-  config.vm.provision "shell", path: "script.sh"
 end
