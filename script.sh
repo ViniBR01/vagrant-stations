@@ -12,4 +12,4 @@ iperf3 -s &>/dev/null & disown
 pkill start-client
 cd /vagrant_data
 # _evalBG "${cmd}"
-./start-client &>/dev/null & disown
+./start-client -v 0 -p $1 &>/dev/null & disown
