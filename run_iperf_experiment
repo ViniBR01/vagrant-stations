@@ -1,0 +1,42 @@
+#! /bin/bash
+
+echo "Starting iperf3 experiment with 32 stations"
+
+iperf3 -c 192.168.0.102 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server01-sta01-MCS8.txt &
+iperf3 -c 192.168.0.103 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server01-sta02-MCS8.txt &
+iperf3 -c 192.168.0.104 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server01-sta03-MCS8.txt &
+iperf3 -c 192.168.0.105 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server01-sta04-MCS8.txt &
+iperf3 -c 192.168.0.106 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server01-sta05-MCS8.txt &
+iperf3 -c 192.168.0.107 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server01-sta06-MCS8.txt &
+
+iperf3 -c 192.168.0.202 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server02-sta01-MCS8.txt &
+iperf3 -c 192.168.0.203 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server02-sta02-MCS8.txt &
+iperf3 -c 192.168.0.204 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server02-sta03-MCS8.txt &
+iperf3 -c 192.168.0.205 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server02-sta04-MCS8.txt &
+iperf3 -c 192.168.0.206 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server02-sta05-MCS8.txt &
+iperf3 -c 192.168.0.207 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server02-sta06-MCS8.txt &
+
+iperf3 -c 192.168.0.132 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server03-sta01-MCS8.txt &
+iperf3 -c 192.168.0.133 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server03-sta02-MCS8.txt &
+iperf3 -c 192.168.0.134 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server03-sta03-MCS8.txt &
+iperf3 -c 192.168.0.135 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server03-sta04-MCS8.txt &
+iperf3 -c 192.168.0.136 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server03-sta05-MCS8.txt &
+iperf3 -c 192.168.0.137 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server03-sta06-MCS8.txt &
+iperf3 -c 192.168.0.138 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server03-sta07-MCS8.txt &
+iperf3 -c 192.168.0.139 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server03-sta08-MCS8.txt &
+iperf3 -c 192.168.0.140 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server03-sta09-MCS8.txt &
+iperf3 -c 192.168.0.141 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server03-sta10-MCS8.txt &
+
+iperf3 -c 192.168.0.162 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server04-sta01-MCS8.txt &
+iperf3 -c 192.168.0.163 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server04-sta02-MCS8.txt &
+iperf3 -c 192.168.0.164 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server04-sta03-MCS8.txt &
+iperf3 -c 192.168.0.165 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server04-sta04-MCS8.txt &
+iperf3 -c 192.168.0.166 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server04-sta05-MCS8.txt &
+iperf3 -c 192.168.0.167 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server04-sta06-MCS8.txt &
+iperf3 -c 192.168.0.168 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server04-sta07-MCS8.txt &
+iperf3 -c 192.168.0.169 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server04-sta08-MCS8.txt &
+iperf3 -c 192.168.0.170 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server04-sta09-MCS8.txt &
+iperf3 -c 192.168.0.171 -i 1 -t 60 --logfile exp01-iperf3-TCP-DL-server04-sta10-MCS8.txt &
+
+wait
+echo "bye."
